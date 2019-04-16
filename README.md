@@ -1,4 +1,5 @@
-Los trabajos practicos se agregaran a una branch
+Los trabajos practicos se agregaran a una branch.
 
-PoCStreams -> branch PoCStreams
-Torneo de Frescas -> branch TP1
+PoCStreams -> branch PoCStreams.
+
+Torneo de Frescas -> branch TP1.
