@@ -1,6 +1,6 @@
-Maven:
+Maven: Es una herramienta para la gestion de proyectos
 
-
+POM: Project Object Model, es un archivo de configuracion donde esta descripto el projecto
 
 Goals:
 
