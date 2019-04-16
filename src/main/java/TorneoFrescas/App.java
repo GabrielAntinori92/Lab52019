@@ -84,12 +84,30 @@ public class App
             vikingsresistance -= (viking.getEndurance() - vikingresistance);
         }
 
+        GanadorDao ganador_save = new GanadorDao();
+
         if(spartansresistance > 0){
             System.out.println("Spartans wins Tournament");
+            try{
+                ganador_save.guardaGanador("Spartans",spartansresistance);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
         }else if(vikingsresistance > 0){
             System.out.println("Vikings wins Tournament");
+            try{
+                ganador_save.guardaGanador("Vikings",vikingsresistance);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }else{
             System.out.println("Tournament ends in Draw");
+            try{
+                ganador_save.guardaGanador("Empate", 0);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 }
