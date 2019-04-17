@@ -12,6 +12,6 @@ public class VikingDrinksImp implements Drink {
 
     public int drink(){
 
-        return  dado.nextInt(10);
+        return  dado.nextInt(15);
     }
 }

@@ -38,18 +38,15 @@ public class App
         int vikingsresistance = vikings.stream().mapToInt(Viking -> Viking.getEndurance()).sum();  //resistencia total del team
         int spartansresistance = spartans.stream().mapToInt(Spartan -> Spartan.getEndurance()).sum();
 
-        while(vikingsresistance > 0 && spartansresistance > 0){
+        while(vikings.size() > 0 && spartans.size() > 0){
 
-            Spartan spartan = spartans.get(dado.nextInt(spartans.size()));
-            Viking viking = vikings.get(dado.nextInt(vikings.size()));
+            Spartan spartan = spartans.remove(dado.nextInt(spartans.size()));
+            Viking viking = vikings.remove(dado.nextInt(vikings.size()));
 
             int spartanresistance = spartan.getEndurance();//resistencia individual del concursante
             int vikingresistance = viking.getEndurance();
 
             while(vikingresistance > 0 && spartanresistance > 0){
-
-                System.out.println(String.format("Name Contestant: %s Endurance: %d",spartan.getName(),spartanresistance));
-                System.out.println(String.format("Name Contestant: %s Endurance: %d",viking.getName(),vikingresistance));
 
                 spartanresistance -= spartan.startDrinking();
                 if(spartanresistance < 0){
@@ -73,7 +70,7 @@ public class App
             }else
                 if(vikingresistance > 0){
                     System.out.println(spartan.startPee());
-                System.out.println("Viking contestant wins round");
+                    System.out.println("Viking contestant wins round");
             }else{
                     spartan.startPee();
                     viking.startPee();
@@ -86,7 +83,7 @@ public class App
 
         GanadorDao ganador_save = new GanadorDao();
 
-        if(spartansresistance > 0){
+        if(spartansresistance > vikingsresistance){
             System.out.println("Spartans wins Tournament");
             try{
                 ganador_save.guardaGanador("Spartans",spartansresistance);
@@ -94,7 +91,7 @@ public class App
                 e.printStackTrace();
             }
 
-        }else if(vikingsresistance > 0){
+        }else if(vikingsresistance > spartansresistance){
             System.out.println("Vikings wins Tournament");
             try{
                 ganador_save.guardaGanador("Vikings",vikingsresistance);
@@ -110,4 +107,5 @@ public class App
             }
         }
     }
+
 }
