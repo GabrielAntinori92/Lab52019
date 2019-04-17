@@ -1,6 +1,6 @@
 Maven: Es una herramienta para la gestion de proyectos
 
-POM: Project Object Model, es un archivo de configuracion donde esta descripto el projecto
+POM: Project Object Model, es un archivo .xml de configuracion donde esta descripto el projecto, este a su vez indica a maven que dependecias descargar.
 
 Goals:
 
