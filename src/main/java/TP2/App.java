@@ -24,6 +24,7 @@ public class App
         Thread t1 = new Thread(p1);
         Thread t2 = new Thread(p2);
 
+        System.out.printf("Palabra elegida: %s\n", sharedppr.getWord());
         t1.start();
         t2.start();
 

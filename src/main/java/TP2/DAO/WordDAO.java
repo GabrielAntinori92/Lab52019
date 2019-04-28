@@ -20,7 +20,7 @@ public class WordDAO {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String selectsql = "select word from words where id = ?";
+        String selectsql = "select word from words where id = ? AND used = ?";
         String result = "";
 
         try{
@@ -33,7 +33,6 @@ public class WordDAO {
             if(rs.next()){
                 result = rs.getString("word");
             }
-
 
         }catch (Exception e){
             e.printStackTrace();
