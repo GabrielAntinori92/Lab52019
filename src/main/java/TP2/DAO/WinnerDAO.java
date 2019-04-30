@@ -25,7 +25,7 @@ public class WinnerDAO {
         }finally {
 
             try{
-                if(conn != null){
+                if(!conn.isClosed()){
                     conn.close();
                 }
             }catch (SQLException e){
@@ -33,7 +33,7 @@ public class WinnerDAO {
             }
 
             try{
-                if(stmt != null){
+                if(!stmt.isClosed()){
                     stmt.close();
                 }
             }catch(SQLException e){

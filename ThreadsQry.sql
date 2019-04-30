@@ -21,5 +21,4 @@ INSERT INTO `words` (`word`) VALUES ("vel"),("vivamus"),("erat"),("maecenas"),("
 INSERT INTO `words` (`word`) VALUES ("sem"),("turpis"),("vehicula"),("semper"),("commodo"),("magna"),("sit"),("euismod"),("dapibus");
 INSERT INTO `words` (`word`) VALUES ("integer"),("adipiscing"),("tempor"),("cursus"),("consequat"),("mus"),("feugiat"),("tortor"),("malesuada");
 
-
-select word from words;
+select * from winners;

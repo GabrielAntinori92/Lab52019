@@ -20,7 +20,7 @@ public class WordDAO {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String selectsql = "select word from words where id = ? AND used = ?";
+        String selectsql = "select word from words where id = ?";
         String result = "";
 
         try{
@@ -38,15 +38,15 @@ public class WordDAO {
             e.printStackTrace();
         }finally {
             try{
-                if(conn != null){
+                if(!conn.isClosed()){
                     conn.close();
                 }
 
-                if(stmt != null){
+                if(!stmt.isClosed()){
                     stmt.close();
                 }
 
-                if(rs != null){
+                if(!rs.isClosed()){
                     rs.close();
                 }
 
@@ -80,7 +80,7 @@ public class WordDAO {
             e.printStackTrace();
         }finally {
             try{
-                if(conn != null){
+                if(!conn.isClosed()){
                     conn.close();
                 }
             }catch (SQLException e){
@@ -88,7 +88,7 @@ public class WordDAO {
             }
 
             try{
-                if(stmt != null){
+                if(!stmt.isClosed()){
                     stmt.close();
                 }
             }catch (SQLException e){
@@ -96,7 +96,7 @@ public class WordDAO {
             }
 
             try{
-                if(rs != null){
+                if(!rs.isClosed()){
                     rs.close();
                 }
             }catch (SQLException e){
