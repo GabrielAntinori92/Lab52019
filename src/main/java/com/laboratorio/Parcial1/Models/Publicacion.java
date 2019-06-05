@@ -1,5 +1,6 @@
 package com.laboratorio.Parcial1.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,7 +18,13 @@ public class Publicacion {
     private String titulo;
     private String descripcion;
     private String foto;
-    private Date fechapublicacion;
+
+    @JsonFormat(pattern="dd-MM-yyyy")
+    private Date fecha;
     private boolean liked;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
 }
