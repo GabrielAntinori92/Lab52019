@@ -1,11 +1,14 @@
 package com.laboratorio.Parcial1.Models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
 import java.util.Date;
 
-public class Publicaciones {
+@Data
+
+@Entity
+public class Publicacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,4 +19,5 @@ public class Publicaciones {
     private String foto;
     private Date fechapublicacion;
     private boolean liked;
+
 }
