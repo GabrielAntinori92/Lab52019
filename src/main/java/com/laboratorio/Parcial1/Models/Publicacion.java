@@ -1,14 +1,18 @@
 package com.laboratorio.Parcial1.Models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 
 @Entity
+@NoArgsConstructor @AllArgsConstructor
 public class Publicacion {
 
     @Id
@@ -18,8 +22,6 @@ public class Publicacion {
     private String titulo;
     private String descripcion;
     private String foto;
-
-    @JsonFormat(pattern="dd-MM-yyyy")
     private Date fecha;
     private boolean liked;
 
@@ -27,4 +29,14 @@ public class Publicacion {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "publicacion")
+    private List<Comentario> comentarios;
+
+    public Publicacion(Integer id, String titulo, String descripcion, String foto, boolean liked) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.foto = foto;
+        this.liked = liked;
+    }
 }

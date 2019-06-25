@@ -1,16 +1,16 @@
 package com.laboratorio.Parcial1.Models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
 
 @Entity
+@NoArgsConstructor @AllArgsConstructor
 public class Comentario {
 
     @Id
@@ -20,4 +20,8 @@ public class Comentario {
     private String descripcion;
     private Date fecha;
     private String owner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publicacion_id")
+    private Publicacion publicacion;
 }
