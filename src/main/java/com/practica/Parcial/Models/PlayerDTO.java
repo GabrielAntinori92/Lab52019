@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor @NoArgsConstructor
 public class PlayerDTO {
     Integer id;
-    String name;
-    String l_name;
-    String team_name;
+    String playerName;
+    String teamName;
 }
